@@ -51,6 +51,8 @@ namespace SwissTransport.UI
 
             // Setzen der boolean auf false.
             str_comp = false;
+
+            txt_to_mail = null;
         }
 
 
@@ -218,7 +220,7 @@ namespace SwissTransport.UI
 
         private void bt_mail_Click(object sender, EventArgs e)
         {
-            if(txt_to_mail == null)
+            if (txt_to_mail == null)
             {
                 MessageBox.Show("Bitte eine gültige Mail eingeben.", "Keine Mail", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -265,7 +267,12 @@ namespace SwissTransport.UI
                 }
                 txt_to_mail.Text = null;
             }
-            
+
+        }
+
+        private void Startseite_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -116,7 +116,7 @@
             this.dGV_Connections.MinimumSize = new System.Drawing.Size(573, 192);
             this.dGV_Connections.Name = "dGV_Connections";
             this.dGV_Connections.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dGV_Connections.Size = new System.Drawing.Size(573, 194);
+            this.dGV_Connections.Size = new System.Drawing.Size(573, 192);
             this.dGV_Connections.TabIndex = 7;
             this.dGV_Connections.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV_Connections_CellContentClick);
             // 
@@ -289,6 +289,7 @@
             this.Name = "Startseite";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Startseite";
+            this.Load += new System.EventHandler(this.Startseite_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGV_Connections)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
