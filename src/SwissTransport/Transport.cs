@@ -24,11 +24,11 @@ namespace SwissTransport
             return null;
         }
 
-        public StationBoardRoot GetStationBoard(string station, string id)
+        public StationBoardRoot GetStationBoard(string station, string id, System.DateTime selected_DateTime)
         {
             station = System.Uri.EscapeDataString(station);
             id = System.Uri.EscapeDataString(id);
-            var request = CreateWebRequest("http://transport.opendata.ch/v1/stationboard?station=" + station + "&id=" + id);
+            var request = CreateWebRequest("http://transport.opendata.ch/v1/stationboard?station=" + station + "&id=" + id + "&datetime=" + selected_DateTime);
             var response = request.GetResponse();
             var responseStream = response.GetResponseStream();
 
@@ -43,11 +43,16 @@ namespace SwissTransport
             return null;
         }
 
-        public Connections GetConnections(string fromStation, string toStation)
+        public Connections GetConnections(string fromStation, string toStation, System.DateTime selected_DateTime, int arr_dep, int later_conn)
         {
             fromStation = System.Uri.EscapeDataString(fromStation);
             toStation = System.Uri.EscapeDataString(toStation);
-            var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation + "&to=" + toStation);
+            var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation + 
+                "&to=" + toStation + 
+                "&date=" + selected_DateTime.Date + 
+                "&time=" + selected_DateTime.TimeOfDay + 
+                "&limit=" + later_conn + 
+                "&isArrivalTime=" + arr_dep);
             var response = request.GetResponse();
             var responseStream = response.GetResponseStream();
 
